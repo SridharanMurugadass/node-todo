@@ -18,7 +18,12 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
-
+app.get('/data', function (req, res) {
+   fs.readFile("/" + "users.json", 'utf8', function (err, data) {
+       console.log( data );
+       res.end( data );
+   });
+})
 // routes ======================================================================
 require('./app/routes.js')(app);
 
