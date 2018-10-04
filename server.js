@@ -19,7 +19,7 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse applicati
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
 app.get('/data', function (req, res) {
-   fs.readFile("/" + "users.json", 'utf8', function (err, data) {
+   fs.readFile("users.json", 'utf8', function (err, data) {
        console.log( data );
        res.end( data );
    });
